@@ -1,6 +1,7 @@
  dingz inteligente Schalter - MQTT Integration by Hamatschu & Gemini
 
- Aufgebaut auf dingz MQTT topics FW 2.1.58 V1.03 - Jan 2025 mit HAOS 2026.8
+ Aufgebaut auf [dingz MQTT topics FW 2.1.58 V1.03 - Jan 2025](https://cdn.prod.website-files.com/6798af77d7c53b4f7912ec17/67cecc6a432cd53fdbeabc4b_dingz%20MQTT%20Topics%2020250114.pdf) mit HAOS 2026.8
+ 
 
 <img width="1235" height="2131" alt="dingz MQTT HA" src="https://github.com/user-attachments/assets/64ac8816-b42e-48f8-81c7-a3d59203a903" />
 
