@@ -1,0 +1,1 @@
+# dingz-inteligente-Schalter---MQTT-Integration
