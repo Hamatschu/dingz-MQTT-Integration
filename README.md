@@ -1,5 +1,3 @@
-@ -1,21 +1,393 @@
- dingz inteligente Schalter - MQTT Integration by Hamatschu & Gemini
 # dingz MQTT Integration für Home Assistant
 
  Aufgebaut auf dingz MQTT topics FW 2.1.58 V1.03 - Jan 2025 mit HAOS 2026.8
