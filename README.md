@@ -1,4 +1,4 @@
-#Manuelle MQTT-Konfiguration von dingz MQTT in Home Assistant
+# Manuelle MQTT-Konfiguration von dingz MQTT in Home Assistant
 
  Aufgebaut auf dingz MQTT topics FW 2.1.58 V1.03 - Jan 2025 mit HAOS 2026.8
 Dieses Repo ist für eien reine MQTT integration von der smarten Lichtschaltern von [dingz](https://dingz.ch/).
