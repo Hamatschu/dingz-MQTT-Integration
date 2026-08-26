@@ -1,4 +1,4 @@
-# dingz MQTT Integration für Home Assistant
+#Manuelle MQTT-Konfiguration von dingz MQTT in Home Assistant
 
  Aufgebaut auf dingz MQTT topics FW 2.1.58 V1.03 - Jan 2025 mit HAOS 2026.8
 Dieses Repo ist für eien reine MQTT integration von der smarten Lichtschaltern von [dingz](https://dingz.ch/).
@@ -8,7 +8,7 @@ Die Konfiguration basiert auf den [dingz MQTT topics FW 2.1.58 V1.03 - Jan 2025]
 
 ## ✨ Funktionen
 
-Mit der enthaltenen `mqtt.yaml` können dingz-Geräte über MQTT als Home-Assistant-Entitäten eingebunden werden.
+Mit der enthaltenen `mqtt.yaml` können dingz-Geräte über MQTT als ein Gerät in Home Assistant eingebunden werden.
 Aktuell werden unter anderem folgende Funktionen unterstützt:
 
 * 💡 Licht / Dimmer
