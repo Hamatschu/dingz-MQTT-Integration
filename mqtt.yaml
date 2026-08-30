@@ -1,321 +1,323 @@
 # dingz inteligente Schalter - MQTT Integration by Hamatschu & Gemini
 #
 # Aufgebaut auf dingz MQTT topics FW 2.1.58 V1.03 - Jan 2025 mit HAOS 2026.8
-#
-# =========================================================================================
-# Lichter / Dimmer
-# =========================================================================================
-light:
 
-  # ----------------------------------------------------------
-  # Bei deaktivierten Dimmumg, hat der Dimmmbalken in HA keine funktion, wird aber angezeigt.
-  # Um aus dimmbaren Licht Entitäten reine Ein/Aus-Steckdosen Schalter zu machen,
-  # kannst du den Abschnitt Schalter nutzen.
-  # ----------------------------------------------------------
-  - name: "Licht 1" # Ausgaung 1 / Imput 4
-    unique_id: "dingz_f008d1c578c8_light_0"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/0"
-    command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/0"
-    state_value_template: '{"turn":"{{ value_json.turn }}"}'
-    brightness_state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/0"
-    brightness_command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/0"
-    brightness_value_template: "{{ value_json.brightness }}"
-    brightness_scale: 100
-    on_command_type: 'brightness'
-    payload_on: '{"turn":"on"}'
-    payload_off: '{"turn":"off"}'
-    brightness_command_template: '{"turn":"on","brightness":{{ value }}}'
-    device: &f008d1c578c8
-      identifiers: "dingz_f008d1c578c8"
-      name: "dingz_f008d1c578c8"
-      manufacturer: "dingz"
-      model: "dz1f-pir"
+mqtt:
 
-  - name: "Licht 2" # Ausgaung 2
-    unique_id: "dingz_f008d1c578c8_light_1"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/1"
-    command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/1"
-    state_value_template: '{"turn":"{{ value_json.turn }}"}'
-    brightness_state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/1"
-    brightness_command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/1"
-    brightness_value_template: "{{ value_json.brightness }}"
-    brightness_scale: 100
-    on_command_type: 'brightness'
-    payload_on: '{"turn":"on"}'
-    payload_off: '{"turn":"off"}'
-    brightness_command_template: '{"turn":"on","brightness":{{ value }}}'
-    device: *f008d1c578c8
+  # =========================================================================================
+  # Lichter / Dimmer
+  # =========================================================================================
+  light:
 
-  - name: "Licht 3" # Ausgaung 3
-    unique_id: "dingz_f008d1c578c8_light_2"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/2"
-    command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/2"
-    state_value_template: '{"turn":"{{ value_json.turn }}"}'
-    brightness_state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/2"
-    brightness_command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/2"
-    brightness_value_template: "{{ value_json.brightness }}"
-    brightness_scale: 100
-    on_command_type: 'brightness'
-    payload_on: '{"turn":"on"}'
-    payload_off: '{"turn":"off"}'
-    brightness_command_template: '{"turn":"on","brightness":{{ value }}}'
-    device: *f008d1c578c8
+    # ----------------------------------------------------------
+    # Bei deaktivierten Dimmumg, hat der Dimmmbalken in HA keine funktion, wird aber angezeigt.
+    # Um aus dimmbaren Licht Entitäten reine Ein/Aus-Steckdosen Schalter zu machen,
+    # kannst du den Abschnitt Schalter nutzen.
+    # ----------------------------------------------------------
+    - name: "Licht 1" # Ausgaung 1 / Imput 4
+      unique_id: "dingz_f008d1c578c8_light_0"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/0"
+      command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/0"
+      state_value_template: '{"turn":"{{ value_json.turn }}"}'
+      brightness_state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/0"
+      brightness_command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/0"
+      brightness_value_template: "{{ value_json.brightness }}"
+      brightness_scale: 100
+      on_command_type: 'brightness'
+      payload_on: '{"turn":"on"}'
+      payload_off: '{"turn":"off"}'
+      brightness_command_template: '{"turn":"on","brightness":{{ value }}}'
+      device: &f008d1c578c8
+        identifiers: "dingz_f008d1c578c8"
+        name: "dingz_f008d1c578c8"
+        manufacturer: "dingz"
+        model: "dz1f-pir"
 
-  - name: "Licht 4" # Ausgaung 4
-    unique_id: "dingz_f008d1c578c8_light_3"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/3"
-    command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/3"
-    state_value_template: '{"turn":"{{ value_json.turn }}"}'
-    brightness_state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/3"
-    brightness_command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/3"
-    brightness_value_template: "{{ value_json.brightness }}"
-    brightness_scale: 100
-    on_command_type: 'brightness'
-    payload_on: '{"turn":"on"}'
-    payload_off: '{"turn":"off"}'
-    brightness_command_template: '{"turn":"on","brightness":{{ value }}}'
-    device: *f008d1c578c8
+    - name: "Licht 2" # Ausgaung 2
+      unique_id: "dingz_f008d1c578c8_light_1"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/1"
+      command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/1"
+      state_value_template: '{"turn":"{{ value_json.turn }}"}'
+      brightness_state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/1"
+      brightness_command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/1"
+      brightness_value_template: "{{ value_json.brightness }}"
+      brightness_scale: 100
+      on_command_type: 'brightness'
+      payload_on: '{"turn":"on"}'
+      payload_off: '{"turn":"off"}'
+      brightness_command_template: '{"turn":"on","brightness":{{ value }}}'
+      device: *f008d1c578c8
 
-# =========================================================================================
-# Schalter
-# =========================================================================================
-switch:
- # - name: "Steckdose 2"  # Ausgaung 2
-   # unique_id: "dingz_f008d1c578c8_light_1"
-   # state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/1"
-   # command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/1"
-   # value_template: "{{ value_json.turn }}"
-   # state_on: "on"
-   # state_off: "off"
-   # payload_on: '{"turn":"on"}'
-   # payload_off: '{"turn":"off"}'
-   # device_class: outlet
-   # device: *f008d1c578c8
+  #  - name: "Licht 3" # Ausgaung 3
+  #    unique_id: "dingz_f008d1c578c8_light_2"
+  #    state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/2"
+  #    command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/2"
+  #    state_value_template: '{"turn":"{{ value_json.turn }}"}'
+  #    brightness_state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/2"
+  #    brightness_command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/2"
+  #    brightness_value_template: "{{ value_json.brightness }}"
+  #    brightness_scale: 100
+  #    on_command_type: 'brightness'
+  #    payload_on: '{"turn":"on"}'
+  #    payload_off: '{"turn":"off"}'
+  #    brightness_command_template: '{"turn":"on","brightness":{{ value }}}'
+  #    device: *f008d1c578c8
 
- # - name: "Steckdose 3" # Ausgaung 3
-   # unique_id: "dingz_f008d1c578c8_switch_2"
-   # state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/2"
-   # command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/2"
-   # value_template: "{{ value_json.turn }}"
-   # state_on: "on"
-   # state_off: "off"
-   # payload_on: '{"turn":"on"}'
-   # payload_off: '{"turn":"off"}'
-   # device_class: outlet
-   # device: *f008d1c578c8
+    - name: "Licht 4" # Ausgaung 4
+      unique_id: "dingz_f008d1c578c8_light_3"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/3"
+      command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/3"
+      state_value_template: '{"turn":"{{ value_json.turn }}"}'
+      brightness_state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/3"
+      brightness_command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/3"
+      brightness_value_template: "{{ value_json.brightness }}"
+      brightness_scale: 100
+      on_command_type: 'brightness'
+      payload_on: '{"turn":"on"}'
+      payload_off: '{"turn":"off"}'
+      brightness_command_template: '{"turn":"on","brightness":{{ value }}}'
+      device: *f008d1c578c8
 
-# =========================================================================================
-# Sensoren
-# =========================================================================================
-sensor:
-  - name: "Temperatur"
-    unique_id: "dingz_f008d1c578c8_temperature"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/sensor/temperature"
-    device_class: temperature
-    state_class: measurement
-    unit_of_measurement: "°C"
-    device: *f008d1c578c8
-
-  - name: "Helligkeit"
-    unique_id: "dingz_f008d1c578c8_illuminance"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/sensor/light"
-    device_class: illuminance
-    state_class: measurement
-    unit_of_measurement: "lx"
-    device: *f008d1c578c8
-
-  - name: "Leistung Ausgang 1"
-    unique_id: "dingz_f008d1c578c8_power_light_0"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/power/light/0"
-    device_class: power
-    state_class: measurement
-    unit_of_measurement: "W"
-    device: *f008d1c578c8
-
-  - name: "Leistung Ausgang 2"
-    unique_id: "dingz_f008d1c578c8_power_light_1"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/power/light/1"
-    device_class: power
-    state_class: measurement
-    unit_of_measurement: "W"
-    device: *f008d1c578c8
-
-  - name: "Leistung Ausgang 3"
-    unique_id: "dingz_f008d1c578c8_power_light_2"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/power/light/2"
-    device_class: power
-    state_class: measurement
-    unit_of_measurement: "W"
-    device: *f008d1c578c8
-
-  - name: "Leistung Ausgang 4"
-    unique_id: "dingz_f008d1c578c8_power_light_3"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/power/light/3"
-    device_class: power
-    state_class: measurement
-    unit_of_measurement: "W"
-    device: *f008d1c578c8
-
-  # ----------------------------------------------------------
-  # Taster Events
-  #
-  # p  = press
-  # h  = hold (wiederholt sich jede Sekunde)
-  # m2 = double click
-  # m3 = triple click
-  # r  = release nach hold
-  #
-  # Der Sensor enthält jeweils das zuletzt empfangene Event.
-  # ----------------------------------------------------------
-  - name: "Taste 1"
-    unique_id: "dingz_f008d1c578c8_button_0"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/event/button/0"
-    icon: "mdi:gesture-tap-button"
-    device: *f008d1c578c8
-
-  - name: "Taste 2"
-    unique_id: "dingz_f008d1c578c8_button_1"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/event/button/1"
-    icon: "mdi:gesture-tap-button"
-    device: *f008d1c578c8
-
-  - name: "Taste 3"
-    unique_id: "dingz_f008d1c578c8_button_2"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/event/button/2"
-    icon: "mdi:gesture-tap-button"
-    device: *f008d1c578c8
-
-  - name: "Taste 4"
-    unique_id: "dingz_f008d1c578c8_button_3"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/event/button/3"
-    icon: "mdi:gesture-tap-button"
-    device: *f008d1c578c8
-
-  - name: "Input Input 4" # Ausgaung 1 / Licht 1
-    unique_id: "dingz_f008d1c578c8_button_4"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/event/button/4"
-    icon: "mdi:gesture-tap-button"
-    device: *f008d1c578c8
-
-  # ----------------------------------------------------------
-  # Einzelne LED-Farbkanäle (deaktiviert per Standard)Werte 0-255
-  # Nicht für Nachtlicht gültig!
-  # ----------------------------------------------------------
-  - name: "LED"
-    unique_id: "dingz_f008d1c578c8_led"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/state/led"
-    value_template: >
-      {% if value_json.on == 1 %}
-        on
-      {% else %}
-        off
-      {% endif %}
-    icon: "mdi:led-on"
-    device: *f008d1c578c8
-
-  - name: "LED Rot"
-    unique_id: "dingz_f008d1c578c8_led_red"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/state/led"
-    value_template: "{{ value_json.r }}"
-    state_class: measurement
-    enabled_by_default: false
-    icon: "mdi:led-on"
-    device: *f008d1c578c8
-
-  - name: "LED Grün"
-    unique_id: "dingz_f008d1c578c8_led_green"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/state/led"
-    value_template: "{{ value_json.g }}"
-    state_class: measurement
-    enabled_by_default: false
-    icon: "mdi:led-on"
-    device: *f008d1c578c8
-
-  - name: "LED Blau"
-    unique_id: "dingz_f008d1c578c8_led_blue"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/state/led"
-    value_template: "{{ value_json.b }}"
-    state_class: measurement
-    enabled_by_default: false
-    icon: "mdi:led-on"
-    device: *f008d1c578c8
-
-  # ----------------------------------------------------------
-  # ANNOUNCE
-  # ----------------------------------------------------------
-  - name: "Modell"
-    unique_id: "dingz_f008d1c578c8_model"
-    state_topic: "dingz/f008d1c578c8/announce"
-    value_template: "{{ value_json.model }}"
-    entity_category: diagnostic
-    device: *f008d1c578c8
-
-  - name: "IP"
-    unique_id: "dingz_f008d1c578c8_ip"
-    state_topic: "dingz/f008d1c578c8/announce"
-    value_template: "{{ value_json.ip }}"
-    entity_category: diagnostic
-    device: *f008d1c578c8
-
-  - name: "Firmware"
-    unique_id: "dingz_f008d1c578c8_firmware"
-    state_topic: "dingz/f008d1c578c8/announce"
-    value_template: "{{ value_json.fw_version }}"
-    entity_category: diagnostic
-    device: *f008d1c578c8
-
-  - name: "Hardware"
-    unique_id: "dingz_f008d1c578c8_hardware"
-    state_topic: "dingz/f008d1c578c8/announce"
-    value_template: "{{ value_json.hw_version }}"
-    entity_category: diagnostic
-    device: *f008d1c578c8
-
-# =========================================================================================
-# Update
-# =========================================================================================
-update:
-
-  # - name: "Firmware"
-    # unique_id: "dingz_f008d1c578c8_firmware"
-    # state_topic: "dingz/f008d1c578c8/announce"
-    # value_template: "{{ value_json.fw_version }}"
-    # latest_version_topic: "dingz/f008d1c578c8/announce"
-    # latest_version_template: "{{ value_json.fw_version }}"
-    # entity_category: diagnostic
+  # =========================================================================================
+  # Schalter
+  # =========================================================================================
+  switch:
+  # - name: "Steckdose 2"  # Ausgaung 2
+    # unique_id: "dingz_f008d1c578c8_light_1"
+    # state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/1"
+    # command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/1"
+    # value_template: "{{ value_json.turn }}"
+    # state_on: "on"
+    # state_off: "off"
+    # payload_on: '{"turn":"on"}'
+    # payload_off: '{"turn":"off"}'
+    # device_class: outlet
     # device: *f008d1c578c8
 
-# =========================================================================================
-# Binärsensoren
-# =========================================================================================
-binary_sensor:
+    - name: "Steckdose 3" # Ausgaung 3
+      unique_id: "dingz_f008d1c578c8_switch_2"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/state/light/2"
+      command_topic: "dingz/f008d1c578c8/dz1f-pir/command/light/2"
+      value_template: "{{ value_json.turn }}"
+      state_on: "on"
+      state_off: "off"
+      payload_on: '{"turn":"on"}'
+      payload_off: '{"turn":"off"}'
+      device_class: outlet
+      device: *f008d1c578c8
 
-  # ----------------------------------------------------------
-  # PIR
-  #   s  = somebody        => ON
-  #   ss = still somebody  => ON
-  #   n  = nobody          => OFF
-  # ----------------------------------------------------------
-  - name: "PIR"
-    unique_id: "dingz_f008d1c578c8_pir_0"
-    state_topic: "dingz/f008d1c578c8/dz1f-pir/event/pir/0"
-    value_template: >
-      {% if value is defined and value in ['s', 'ss'] %}
-        on
-      {% else %}
-        off
-      {% endif %}
-    payload_on: "on"
-    payload_off: "off"
-    device_class: motion
-    device: *f008d1c578c8
+  # =========================================================================================
+  # Sensoren
+  # =========================================================================================
+  sensor:
+    - name: "Temperatur"
+      unique_id: "dingz_f008d1c578c8_temperature"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/sensor/temperature"
+      device_class: temperature
+      state_class: measurement
+      unit_of_measurement: "°C"
+      device: *f008d1c578c8
 
-  # Verbindungsstatus
-  - name: "Online Status"
-    unique_id: "dingz_f008d1c578c8_online"
-    state_topic: "dingz/f008d1c578c8/online"
-    payload_on: "true"
-    payload_off: "false"
-    device_class: connectivity
-    entity_category: diagnostic
-    device: *f008d1c578c8
+    - name: "Helligkeit"
+      unique_id: "dingz_f008d1c578c8_illuminance"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/sensor/light"
+      device_class: illuminance
+      state_class: measurement
+      unit_of_measurement: "lx"
+      device: *f008d1c578c8
+
+    - name: "Leistung Ausgang 1"
+      unique_id: "dingz_f008d1c578c8_power_light_0"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/power/light/0"
+      device_class: power
+      state_class: measurement
+      unit_of_measurement: "W"
+      device: *f008d1c578c8
+
+    - name: "Leistung Ausgang 2"
+      unique_id: "dingz_f008d1c578c8_power_light_1"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/power/light/1"
+      device_class: power
+      state_class: measurement
+      unit_of_measurement: "W"
+      device: *f008d1c578c8
+
+    - name: "Leistung Ausgang 3"
+      unique_id: "dingz_f008d1c578c8_power_light_2"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/power/light/2"
+      device_class: power
+      state_class: measurement
+      unit_of_measurement: "W"
+      device: *f008d1c578c8
+
+    - name: "Leistung Ausgang 4"
+      unique_id: "dingz_f008d1c578c8_power_light_3"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/power/light/3"
+      device_class: power
+      state_class: measurement
+      unit_of_measurement: "W"
+      device: *f008d1c578c8
+
+    # ----------------------------------------------------------
+    # Taster Events
+    #
+    # p  = press
+    # h  = hold (wiederholt sich jede Sekunde)
+    # m2 = double click
+    # m3 = triple click
+    # r  = release nach hold
+    #
+    # Der Sensor enthält jeweils das zuletzt empfangene Event.
+    # ----------------------------------------------------------
+    - name: "Taste 1"
+      unique_id: "dingz_f008d1c578c8_button_0"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/event/button/0"
+      icon: "mdi:gesture-tap-button"
+      device: *f008d1c578c8
+
+    - name: "Taste 2"
+      unique_id: "dingz_f008d1c578c8_button_1"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/event/button/1"
+      icon: "mdi:gesture-tap-button"
+      device: *f008d1c578c8
+
+    - name: "Taste 3"
+      unique_id: "dingz_f008d1c578c8_button_2"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/event/button/2"
+      icon: "mdi:gesture-tap-button"
+      device: *f008d1c578c8
+
+    - name: "Taste 4"
+      unique_id: "dingz_f008d1c578c8_button_3"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/event/button/3"
+      icon: "mdi:gesture-tap-button"
+      device: *f008d1c578c8
+
+    - name: "Input Input 4" # Ausgaung 1 / Licht 1
+      unique_id: "dingz_f008d1c578c8_button_4"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/event/button/4"
+      icon: "mdi:gesture-tap-button"
+      device: *f008d1c578c8
+
+    # ----------------------------------------------------------
+    # Einzelne LED-Farbkanäle (deaktiviert per Standard)Werte 0-255
+    # Nicht für Nachtlicht gültig!
+    # ----------------------------------------------------------
+    - name: "LED"
+      unique_id: "dingz_f008d1c578c8_led"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/state/led"
+      value_template: >
+        {% if value_json.on == 1 %}
+          on
+        {% else %}
+          off
+        {% endif %}
+      icon: "mdi:led-on"
+      device: *f008d1c578c8
+
+    - name: "LED Rot"
+      unique_id: "dingz_f008d1c578c8_led_red"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/state/led"
+      value_template: "{{ value_json.r }}"
+      state_class: measurement
+      enabled_by_default: false
+      icon: "mdi:led-on"
+      device: *f008d1c578c8
+
+    - name: "LED Grün"
+      unique_id: "dingz_f008d1c578c8_led_green"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/state/led"
+      value_template: "{{ value_json.g }}"
+      state_class: measurement
+      enabled_by_default: false
+      icon: "mdi:led-on"
+      device: *f008d1c578c8
+
+    - name: "LED Blau"
+      unique_id: "dingz_f008d1c578c8_led_blue"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/state/led"
+      value_template: "{{ value_json.b }}"
+      state_class: measurement
+      enabled_by_default: false
+      icon: "mdi:led-on"
+      device: *f008d1c578c8
+
+    # ----------------------------------------------------------
+    # ANNOUNCE
+    # ----------------------------------------------------------
+    - name: "Modell"
+      unique_id: "dingz_f008d1c578c8_model"
+      state_topic: "dingz/f008d1c578c8/announce"
+      value_template: "{{ value_json.model }}"
+      entity_category: diagnostic
+      device: *f008d1c578c8
+
+    - name: "IP"
+      unique_id: "dingz_f008d1c578c8_ip"
+      state_topic: "dingz/f008d1c578c8/announce"
+      value_template: "{{ value_json.ip }}"
+      entity_category: diagnostic
+      device: *f008d1c578c8
+
+    - name: "Firmware"
+      unique_id: "dingz_f008d1c578c8_firmware"
+      state_topic: "dingz/f008d1c578c8/announce"
+      value_template: "{{ value_json.fw_version }}"
+      entity_category: diagnostic
+      device: *f008d1c578c8
+
+    - name: "Hardware"
+      unique_id: "dingz_f008d1c578c8_hardware"
+      state_topic: "dingz/f008d1c578c8/announce"
+      value_template: "{{ value_json.hw_version }}"
+      entity_category: diagnostic
+      device: *f008d1c578c8
+
+  # =========================================================================================
+  # Update
+  # =========================================================================================
+  update:
+
+    # - name: "Firmware"
+      # unique_id: "dingz_f008d1c578c8_firmware"
+      # state_topic: "dingz/f008d1c578c8/announce"
+      # value_template: "{{ value_json.fw_version }}"
+      # latest_version_topic: "dingz/f008d1c578c8/announce"
+      # latest_version_template: "{{ value_json.fw_version }}"
+      # entity_category: diagnostic
+      # device: *f008d1c578c8
+
+  # =========================================================================================
+  # Binärsensoren
+  # =========================================================================================
+  binary_sensor:
+
+    # ----------------------------------------------------------
+    # PIR
+    #    s  = somebody         => ON
+    #    ss = still somebody  => ON
+    #    n  = nobody          => OFF
+    # ----------------------------------------------------------
+    - name: "PIR"
+      unique_id: "dingz_f008d1c578c8_pir_0"
+      state_topic: "dingz/f008d1c578c8/dz1f-pir/event/pir/0"
+      value_template: >
+        {% if value is defined and value in ['s', 'ss'] %}
+          on
+        {% else %}
+          off
+        {% endif %}
+      payload_on: "on"
+      payload_off: "off"
+      device_class: motion
+      device: *f008d1c578c8
+
+    # Verbindungsstatus
+    - name: "Online Status"
+      unique_id: "dingz_f008d1c578c8_online"
+      state_topic: "dingz/f008d1c578c8/online"
+      payload_on: "true"
+      payload_off: "false"
+      device_class: connectivity
+      entity_category: diagnostic
+      device: *f008d1c578c8
