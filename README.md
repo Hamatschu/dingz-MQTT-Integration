@@ -6,7 +6,7 @@ Die Konfiguration basiert auf den [dingz MQTT topics FW 2.1.58 V1.03 - Jan 2025]
 
 > Dieses Projekt stellt keine offizielle Integration von dingz / iolo AG / myStrom AG dar.
 
-## ✨ Funktionen
+# ✨ Funktionen
 
 Mit der enthaltenen `mqtt.yaml` können dingz-Geräte über MQTT als ein Gerät in Home Assistant eingebunden werden.
 Aktuell werden unter anderem folgende Funktionen unterstützt:
@@ -29,7 +29,7 @@ Aktuell werden unter anderem folgende Funktionen unterstützt:
 
 ---
 
-## 📋 Voraussetzungen
+# 📋 Voraussetzungen
 
 Du benötigst:
 
@@ -43,21 +43,24 @@ Die verwendeten MQTT Topics orientieren sich an der Dokumentation:
 
 ---
 
-## 🚀 Installation
-
-
+# 🚀 Installation
 
 ---
 
-# 🔧 Gerät anpassen
-
-Die mitgelieferte YAML ist auf ein Beispielgerät mit der ID
-
+## 🔧 Home Assistant anpassen
+Füge ganz oben in deine `configuration.yaml` folgenden Block ein (falls homeassistant: dort noch nicht steht):
 ```text
-f008d1c578c8
+homeassistant:
+  packages: !include_dir_named packages
 ```
+Erstelle im selben Ordner, in dem deine configuration.yaml liegt (also im Ordner /config/), einen neuen Ordner namens:
+```text
+packages
+```
+Kopiere die `mqtt.yaml` in den Ordner `packages` und bennene die Datei nach deinem Gerät, z. B. dingz_1.yaml oder dingz_78c8.yaml.
 
-ausgelegt.
+## 🔧 mqtt.yaml anpassen
+Die mitgelieferte YAML ist auf ein Beispielgerät mit der ID `f008d1c578c8` geschrieben.
 
 Diese ID musst du für dein eigenes dingz-Gerät überall anpassen.
 
@@ -72,11 +75,13 @@ wird zu:
 ```yaml
 state_topic: "dingz/DEINE_ID/dz1f-pir/state/light/0"
 ```
+### ✨ Für jedes weiter oder neue Gerät
 
+Für jedes weitere dingz-Gerät kanst du diesen Schritt wiederholen, somit hat jeders Gerät eine eigenen Datei und deine eigene mqtt.yaml bleibt unangetastet.
 
 ---
 
-## ⚓ YAML Anchors
+### ⚓ YAML Anchors
 
 Die YAML verwendet **YAML Anchors**, damit die Geräteinformationen nicht bei jeder Entität wiederholt werden müssen.
 
@@ -96,31 +101,12 @@ Weitere Entitäten desselben Geräts verwenden anschliessend einen **(*)**:
 device: *f008d1c578c8
 ```
 
-### Für ein neues Gerät
-
-Für jedes weitere dingz-Gerät solltest du einen eigenen Anchor verwenden.
-
-Beispielsweise:
-
-```yaml
-device: &dingz_123456789abc
-  identifiers: "dingz_123456789abc"
-  name: "dingz_123456789abc"
-  manufacturer: "dingz"
-  model: "dz1f-pir"
-```
-
-Danach:
-
-```yaml
-device: *dingz_123456789abc
-```
 
 Die Anchor-Namen können frei gewählt werden. Eine Verwendung der Geräte-ID oder MAC Adresse als Anchor macht die Zuordnung vor allem bei mehreren Geräten einfacher.
 
 ---
 
-# 💡 Licht und Dimmer
+## 💡 Licht und Dimmer
 
 Die vier Ausgänge des Beispielgeräts sind als Home-Assistant-Licht-Entitäten konfiguriert, da dies der primäre Verwendungszwek ist.
 
@@ -143,7 +129,7 @@ Damit kann Home Assistant sowohl den Ein-/Aus-Zustand als auch die Helligkeit st
 
 ---
 
-# 🔌 Ausgänge als Schalter verwenden
+## 🔌 Ausgänge als Schalter verwenden
 
 Wenn ein Ausgang nicht als Dimmer, sondern ausschließlich als **Ein-/Aus-Schalter bzw. Steckdose** verwendet werden soll, kann die entsprechende `switch:`-Konfiguration benutzt werden.
 
@@ -168,12 +154,12 @@ Die entsprechende Konfiguration ist in der `mqtt.yaml` bereits vorbereitet, aber
 
 ---
 
-# 🌡️ Sensoren
+## 🌡️ Sensoren
 
 Die YAML stellt verschiedene Sensoren bereit.
 
 
-## 🌡️ Sensoren-Werte
+### 🌡️ Sensoren-Werte
 
 Die YAML stellt verschiedene Sensoren bereit:
 
@@ -185,10 +171,9 @@ Die YAML stellt verschiedene Sensoren bereit:
 | Leistung Ausgang 2 | `W`     |
 | Leistung Ausgang 3 | `W`     |
 | Leistung Ausgang 4 | `W`     |
-|
 
 
-## 🔘 Taster-Events
+### 🔘 Taster-Events
 
 Die Taster werden als Sensoren eingebunden.
 
@@ -224,7 +209,7 @@ trigger:
 
 ---
 
-## 💡 LED
+### 💡 LED
 
 Der Status der dingz-LED kann ebenfalls ausgelesen werden.
 
@@ -243,7 +228,7 @@ Die Werte liegen im Bereich `0–255`.
 
 ---
 
-# 🚶 PIR-Bewegungssensor
+## 🚶 PIR-Bewegungssensor
 
 Der PIR-Sensor wird als `binary_sensor` eingebunden.
 
@@ -268,7 +253,7 @@ trigger:
 
 ---
 
-# 📡 Diagnoseinformationen
+## 📡 Diagnoseinformationen
 
 Das Gerät stellt verschiedene Diagnoseinformationen über das `announce` MQTT Topic bereit.
 
